@@ -1,0 +1,244 @@
+html,body{
+    white-space:nowrap;
+    width:100%;
+	min-height:100%;
+}
+.container-fluid{
+	 background: linear-gradient(to top right, #5675b8, #f06e7d);
+	 overflow-x:hidden;
+}
+svg:hover #circle
+{ 
+transition:0.7s;
+  fill: #111;
+  opacity:0.6;
+}
+/*  close buttoni  */
+#close{
+	display:none;
+	position:absolute;
+	  position:fixed;
+	  color:white;
+ cursor:pointer;
+ margin-left:310px;
+  z-index: 100; 
+}
+#close2{
+	display:none;
+	position:absolute;
+	  position:fixed;
+	  color:white;
+ cursor:pointer;
+ margin-left:80%;
+  z-index: 100; 
+}
+/* menu i filter  */
+.menu{
+	-webkit-backface-visibility: hidden; 
+-webkit-transform: translateZ(0);
+	padding-top:20px;
+margin-left:90%;
+color:#edf1f2;
+cursor:pointer;
+ position:fixed;
+}
+.filter{
+-webkit-backface-visibility: hidden; 
+-webkit-transform: translateZ(0);
+	padding-top:20px;
+color:#edf1f2;
+cursor:pointer;
+	 position:fixed;
+}
+/* nakon otvaranja menu-a i filtera */
+.lang{
+	display:none;
+	height:100vh;
+	width:300px;
+	background-color:#edf1f2;
+float:left;
+  overflow: auto;
+  overflow-x:hidden;
+  position:fixed;
+  z-index:100;
+}
+.games {
+		display:none;
+	height:100vh;
+	width:257px;
+	background-color:#edf1f2;
+  overflow: auto;
+  overflow-x:hidden;
+   position:fixed;
+   margin-left:82%;
+   z-index: 100; 
+}
+.search1{
+	  z-index: 110; 
+	  margin-left:28px;
+}
+.list{
+	 text-transform: uppercase;
+	 font-weight:900;
+	 color:#004f8f;
+}
+a.list:hover{
+	color:#269dde;
+	text-decoration:none;
+	cursor:pointer;
+}
+a.list:active{
+		color:#269dde;
+}
+/* za naslov  */
+.header h1{
+	font-weight:900;
+	text-align:center;
+	color:white;
+	padding:20px;
+	font-size:55px;
+}
+.tv{
+	color:#004f8f;
+}
+/* za boxove/streamove */
+.row{
+	padding-left:17%;
+	padding-right:15%;
+min-height:395px;
+}
+
+.box{
+	height:308px;
+	width:280px;
+	float:left;
+margin-right:15px;
+margin-bottom:15px;
+}
+
+.box:hover{
+		box-shadow: 6px 3px 10px black;
+		transition:box-shadow 0.6s;
+}
+
+.box .head{
+	height:80px;
+	background-color:#0066ff;
+
+}
+.name{
+	color:#f2f2f2;
+    margin-left:75px;
+	padding-top:28px;
+    position:absolute;
+		 font-weight: 800;
+}
+.head .logoImg{
+	border-radius: 40px;
+	width:50px;
+	height:50px;
+	position:absolute;
+	opacity:1;
+	margin-top:15px;
+	margin-left:15px;
+}
+.headImg{
+	height:80px;
+	width:280px;
+	opacity:0.3;
+	position:absolute;
+}
+
+/*  Botoom box */
+.box .foot{
+	height:70px;
+	background-color:white;
+
+}
+
+.game-name{
+		color:#004f8f;
+	 text-transform: uppercase;
+	 font-weight: 900;
+	 font-size: 18px;
+	margin-top:10px;
+	margin-left:15px;
+	position:absolute;
+	white-space: nowrap;
+	    width: 260px; 
+	    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+.date{
+	color:gray;
+	position:absolute;
+	margin-top:40px;
+	margin-left:15px;
+}
+/* kad se otvaraju menu i filter */
+#slide{
+    -webkit-transition:all .2s linear;
+    -webkit-transform: translate3d(0,0,0);
+	transition:all .2s linear;
+}
+
+.container-fluid.active #slide{
+    -webkit-transform: translate3d(15%,0,0);
+	 transform: translate3d(15%,0,0);
+	 opacity:0.6;
+}
+.container-fluid.active2 #slide{
+    -webkit-transform: translate3d(-10%,0,0);
+	 transform: translate3d(-10%,0,0);
+	 opacity:0.6;
+}
+
+
+</style>
+
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<style>
+
+/*           Checkbox modifikacija        */
+
+label {
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+input[type=checkbox].css-checkbox {
+	  position: absolute; 
+    overflow: hidden; 
+    clip: rect(0 0 0 0); 
+    height:1px; 
+    width:1px; 
+    margin:-1px; 
+    padding:0;
+    border:0;
+}
+
+input[type=checkbox].css-checkbox + label.css-label {
+	padding-left:15px;
+	height:15px; 
+	display:inline-block;
+	line-height:15px;
+	background-repeat:no-repeat;
+	background-position: 270px 0;
+	font-size:13px;
+	vertical-align:middle;
+	cursor:pointer;
+	z-index:100;
+	text-transform:uppercase;
+}
+
+input[type=checkbox].css-checkbox:checked + label.css-label {
+	background-position: 270px -15px;
+}
+.css-label{
+	background-image:url(http://csscheckbox.com/checkboxes/dark-check-green.png);
+}
+.lite-x-blue{background-image:url(http://csscheckbox.com/checkboxes/lite-x-blue.png);}

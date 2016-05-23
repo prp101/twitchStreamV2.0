@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+  <head>
+    <link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <!-- Include the core AngularJS library -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <!-- Include the AngularJS routing library -->
+    <script src="https://code.angularjs.org/1.2.28/angular-route.min.js"></script>
+	<!-- Csss -->
+	<link href="css/main.css" rel="stylesheet" />
+	<!-- Add fancyBox -->
+<link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet" href="/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+<script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+
+<link rel="stylesheet" href="/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
+<script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+ </head>
+ <body ng-app="MyApp" ng-controller="Streamovi">
+    
+<!-- Dohvaćanje i dodjeljivanje linkova igricama -->	
+<div class="games">
+   <a ng-click="filters.game = ''"> <input class="search1" style="text-align:center" size="25px" placeholder="Click to RESET and search" type="text" ng-model="search.game"> </a>
+    <div class="row"  >
+               <div class="repeat" ng-repeat="x in myGames" >
+             <a class="list" ng-click="filters.game = x.game.name">{{x.game.name}}</a> 
+              </div> 
+    </div>
+</div>
+  
+<!-- Filter po jezicima | broadcast i stream filter -->
+<div class="lang">		
+<div class="broadcast"><br>
+<input type="checkbox" ng-checked="selected=='1'" ng-true-value="'1'" ng-model="selected" class="css-checkbox lite-x-blue" id="checkbox99" ng-click="lang.channel.broadcaster_language = 'en' ; lang.channel.language=' ' ;watch()" />
+<label class="css-label lite-x-blue" for="checkbox99">BROADCAST LANGUAGE ENGLISH &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </label><br>
+
+<input type="checkbox" ng-checked="selected=='2'" ng-true-value="'2'" ng-model="selected" class="css-checkbox lite-x-blue" id="checkbox98" ng-click="lang.channel.broadcaster_language = 'ru' ; lang.channel.language=' ' ;watch()" />
+<label class="css-label lite-x-blue" for="checkbox98">BROADCAST LANGUAGE RUSSIAN &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </label><br>
+
+<input type="checkbox" ng-checked="selected=='3'" ng-true-value="'3'" ng-model="selected" class="css-checkbox lite-x-blue" id="checkbox97" ng-click="lang.channel.broadcaster_language = 'pt' ; lang.channel.language=' ' ;watch()" />
+<label class="css-label lite-x-blue" for="checkbox97">BROADCAST LANGUAGE Portuguese &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </label><br>
+
+<input type="checkbox" ng-checked="selected=='4'" ng-true-value="'4'" ng-model="selected" class="css-checkbox lite-x-blue" id="checkbox96" ng-click="lang.channel.broadcaster_language = 'fr' ; lang.channel.language=' ' ;watch()" />
+<label class="css-label lite-x-blue" for="checkbox96">BROADCAST LANGUAGE French &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  </label><br>
+
+<input type="checkbox" ng-checked="selected=='5'" ng-true-value="'5'" ng-model="selected" class="css-checkbox lite-x-blue" id="checkbox95" ng-click="lang.channel.broadcaster_language = 'tr' ; lang.channel.language=' ' ;watch()" />
+<label class="css-label lite-x-blue" for="checkbox95">BROADCAST LANGUAGE Turkish &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </label><br>
+
+<input type="checkbox" ng-checked="selected=='6'" ng-true-value="'6'" ng-model="selected" class="css-checkbox lite-x-blue" id="checkbox94" ng-click="lang.channel.broadcaster_language = 'ar' ; lang.channel.language=' ' ;watch()" />
+<label class="css-label lite-x-blue" for="checkbox94">BROADCAST LANGUAGE Arabic &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  </label><br>
+
+<input type="checkbox" ng-checked="selected=='7'" ng-true-value="'7'" ng-model="selected" class="css-checkbox lite-x-blue" id="checkbox93" ng-click="lang.channel.broadcaster_language = 'bg' ; lang.channel.language=' ' ;watch()" />
+<label class="css-label lite-x-blue" for="checkbox93">BROADCAST LANGUAGE Bulgarian &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  </label><br>
+
+<input type="checkbox" ng-checked="selected=='8'" ng-true-value="'8'" ng-model="selected" class="css-checkbox lite-x-blue" id="checkbox92" ng-click="lang.channel.broadcaster_language = 'cs' ; lang.channel.language=' ' ;watch()" />
+<label class="css-label lite-x-blue" for="checkbox92">BROADCAST LANGUAGE Czech &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   </label><br>
+
+<input type="checkbox" ng-checked="selected=='9'" ng-true-value="'9'" ng-model="selected" class="css-checkbox lite-x-blue" id="checkbox91" ng-click="lang.channel.broadcaster_language = 'da' ; lang.channel.language=' ' ;watch()" />
+<label class="css-label lite-x-blue" for="checkbox91">BROADCAST LANGUAGE Dansk &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   </label><br>
+
+<input type="checkbox" ng-checked="selected=='10'" ng-true-value="'10'" ng-model="selected" class="css-checkbox lite-x-blue" id="checkbox90" ng-click="lang.channel.broadcaster_language = 'de' ; lang.channel.language=' ' ;watch()" />
+<label class="css-label lite-x-blue" for="checkbox90">BROADCAST LANGUAGE Deutsch &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  </label><br>
+
+<input type="checkbox" ng-checked="selected=='11'" ng-true-value="'11'" ng-model="selected" class="css-checkbox lite-x-blue" id="checkbox89" ng-click="lang.channel.broadcaster_language = 'es' ; lang.channel.language=' ' ;watch()" />
+<label class="css-label lite-x-blue" for="checkbox89">BROADCAST LANGUAGE Español &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  </label><br>
+
+<input type="checkbox" ng-checked="selected=='13'" ng-true-value="'13'" ng-model="selected" class="css-checkbox lite-x-blue" id="checkbox87" ng-click="lang.channel.broadcaster_language = 'nl' ; lang.channel.language=' ' ;watch()" />
+<label class="css-label lite-x-blue" for="checkbox87">BROADCAST LANGUAGE Nederlands &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  </label><br>
+
+<input type="checkbox" ng-checked="selected=='14'" ng-true-value="'14'" ng-model="selected" class="css-checkbox lite-x-blue" id="checkbox86" ng-click="lang.channel.broadcaster_language = 'pl' ; lang.channel.language=' ' ;watch()" />
+<label class="css-label lite-x-blue" for="checkbox86">BROADCAST LANGUAGE Polski &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  </label><br>
+
+<input type="checkbox" ng-checked="selected=='15'" ng-true-value="'15'" ng-model="selected" class="css-checkbox lite-x-blue" id="checkbox85" ng-click="lang.channel.broadcaster_language = 'zh' ; lang.channel.language=' ' ;watch()" />
+<label class="css-label lite-x-blue" for="checkbox85">BROADCAST LANGUAGE Chinese &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  </label><br>
+
+<input type="checkbox" ng-checked="selected=='16'" ng-true-value="'16'" ng-model="selected" class="css-checkbox lite-x-blue" id="checkbox84" ng-click="lang.channel.broadcaster_language = 'ja' ; lang.channel.language=' ' ;watch()" />
+<label class="css-label lite-x-blue" for="checkbox84">BROADCAST LANGUAGE Japanese &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  </label><br>
+
+<input type="checkbox" ng-checked="selected=='17'" ng-true-value="'17'" ng-model="selected" class="css-checkbox lite-x-blue" id="checkbox83" ng-click="lang.channel.broadcaster_language = 'no' ; lang.channel.language=' ' ;watch()" />
+<label class="css-label lite-x-blue" for="checkbox83">BROADCAST LANGUAGE Norwegian &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  </label><br>
+</div>
+
+<div class="stream">
+<input type="checkbox" ng-checked="selected=='100'" ng-true-value="'100'" ng-model="selected" class="css-checkbox lite-x-blue" id="checkbox1" ng-click="lang.channel.language = 'en' ; lang.channel.broadcaster_language=' ' ;watch()" />
+<label class="css-label lite-x-blue" for="checkbox1">stream LANGUAGE ENGLISH &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp </label><br>
+
+<input type="checkbox" ng-checked="selected==98'" ng-true-value="'98'" ng-model="selected" class="css-checkbox lite-x-blue" id="checkbox2" ng-click="lang.channel.language = 'ru' ; lang.channel.broadcaster_language=' ' ;watch()" />
+<label class="css-label lite-x-blue" for="checkbox2">stream LANGUAGE russian &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp </label><br>
+
+<input type="checkbox" ng-checked="selected=='97'" ng-true-value="'97'" ng-model="selected" class="css-checkbox lite-x-blue" id="checkbox3" ng-click="lang.channel.language = 'pt' ; lang.channel.broadcaster_language=' ' ;watch()" />
+<label class="css-label lite-x-blue" for="checkbox3">stream LANGUAGE Portuguese &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp  &nbsp&nbsp&nbsp&nbsp</label><br>
+
+<input type="checkbox" ng-checked="selected=='96'" ng-true-value="'96'" ng-model="selected" class="css-checkbox lite-x-blue" id="checkbox4" ng-click="lang.channel.language = 'fr'; lang.channel.broadcaster_language=' ' ;watch()" />
+<label class="css-label lite-x-blue" for="checkbox4">stream LANGUAGE French &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp </label><br>
+
+<input type="checkbox" ng-checked="selected=='95'" ng-true-value="'95'" ng-model="selected" class="css-checkbox lite-x-blue" id="checkbox5" ng-click="lang.channel.language = 'tr'; lang.channel.broadcaster_language=' ' ;watch()" />
+<label class="css-label lite-x-blue" for="checkbox5">stream LANGUAGE Turkish &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp </label><br>
+
+<input type="checkbox" ng-checked="selected=='94'" ng-true-value="'94'" ng-model="selected" class="css-checkbox lite-x-blue" id="checkbox6" ng-click="lang.channel.language = 'ar' ; lang.channel.broadcaster_language=' ' ;watch()" />
+<label class="css-label lite-x-blue" for="checkbox6">stream LANGUAGE Arabic &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp </label><br>
+
+<input type="checkbox" ng-checked="selected=='93'" ng-true-value="'93'" ng-model="selected" class="css-checkbox lite-x-blue" id="checkbox7" ng-click="lang.channel.language = 'bg' ; lang.channel.broadcaster_language=' ' ;watch()" />
+<label class="css-label lite-x-blue" for="checkbox7">stream LANGUAGE Bulgarian &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp </label><br>
+
+<input type="checkbox" ng-checked="selected=='92'" ng-true-value="'92'" ng-model="selected" class="css-checkbox lite-x-blue" id="checkbox8" ng-click="lang.channel.language = 'cs'; lang.channel.broadcaster_language=' ' ;watch()" />
+<label class="css-label lite-x-blue" for="checkbox8">stream LANGUAGE Czech &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp </label><br>
+
+<input type="checkbox" ng-checked="selected=='91'" ng-true-value="'91'" ng-model="selected" class="css-checkbox lite-x-blue" id="checkbox9" ng-click="lang.channel.language = 'da' ; lang.channel.broadcaster_language=' ' ;watch()" />
+<label class="css-label lite-x-blue" for="checkbox9">stream LANGUAGE Dansk &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp </label><br>
+
+<input type="checkbox" ng-checked="selected=='90'" ng-true-value="'90'" ng-model="selected" class="css-checkbox lite-x-blue" id="checkbox10" ng-click="lang.channel.language = 'de' ; lang.channel.broadcaster_language=' ' ;watch()" />
+<label class="css-label lite-x-blue" for="checkbox10">stream LANGUAGE Deutsch &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp </label><br>
+
+<input type="checkbox" ng-checked="selected=='89'" ng-true-value="'89'" ng-model="selected" class="css-checkbox lite-x-blue" id="checkbox11" ng-click="lang.channel.language = 'es' ; lang.channel.broadcaster_language=' ' ;watch()" />
+<label class="css-label lite-x-blue" for="checkbox11">stream LANGUAGE Español &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp </label><br>
+
+<input type="checkbox" ng-checked="selected=='88'" ng-true-value="'88'" ng-model="selected" class="css-checkbox lite-x-blue" id="checkbox12" ng-click="lang.channel.language = 'zh' ; lang.channel.broadcaster_language=' ' ;watch()" />
+<label class="css-label lite-x-blue" for="checkbox12">stream LANGUAGE Chinese &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp </label><br>
+
+<input type="checkbox" ng-checked="selected=='87'" ng-true-value="'87'" ng-model="selected" class="css-checkbox lite-x-blue" id="checkbox13" ng-click="lang.channel.language = 'pl' ; lang.channel.broadcaster_language=' ' ;watch()" />
+<label class="css-label lite-x-blue" for="checkbox13">stream LANGUAGE Polski &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp </label><br>
+</div>
+
+</div>
+
+<!-- Close buttoni  -->
+    <i class="fa fa-times fa-2x" aria-hidden="true" id="close"></i>
+	<i class="fa fa-times fa-2x" aria-hidden="true" id="close2"></i>
+	 
+<!--  Cijeli body skoro -->
+<div class="container-fluid" id="slide" >
+
+<!-- Menu i filter icone i funkcije -->
+<div class="menu" id="slide">
+  <i class="fa fa-bars fa-4x" aria-hidden="true"></i>
+</div>
+  <div class="filter" id="slide">
+  <i class="fa fa-filter fa-4x" aria-hidden="true"></i>
+  </div>
+  
+<!-- Naslov stranice -->
+  <div class="header" id="slide">
+	<h1><a href="." style="text-decoration:none;color:white">TWITCH<span class="tv"><i class="fa fa-play-circle " aria-hidden="true"></i>TV</span></a></h1>
+  </div>
+  
+<!-- Okviri za streamove i streamovi -->
+    <div class="row" id="slide">
+	
+      <div class="box" ng-repeat="x in myName | filter:filters | filter:search |filter:lang" >
+	  <!-- dodjeljivanje linka svakom streamu  -->
+	<a class="various fancybox.iframe" href="{{link+ x.channel.name | trustThisUrl}}">
+     	<div class="head">
+		<img class="logoImg" ng-src="{{ x.channel.logo}}" />
+		<img class="headImg" ng-src="{{ x.channel.profile_banner}}" />
+		<span class="name">{{ x.channel.display_name}}</span>
+		</div>
+		      <img class="img-responsive" ng-src="{{ x.preview.medium }}"/>
+		 	  <div class="foot">
+	               <span class="game-name">{{ x.game }}</span>
+	               <span class="date"> <i class="glyphicon glyphicon-eye-open"></i> {{ x.viewers }} <i class="fa fa-circle" aria-hidden="true"></i> {{ x.created_at|date:mediumDate}}</span>
+	          </div>
+    </a>
+      </div>   
+    </div>
+	
+<!-- Dugme krug za load more -->
+  	<svg width="100" height="100" style="margin-left:45%;cursor:pointer" id="slide" ng-click="loadData()" >
+  <circle id="circle" cx="50" cy="50" r="40" stroke="#8c8c8c" stroke-width="1" fill="transparent" />
+  <text fill="#edf1f2" font-size="15" font-family="Verdana" font-weight="900" x="26" y="45">LOAD</text>
+  <text fill="#edf1f2" font-size="15" font-family="Verdana" font-weight="900" x="26" y="60">MORE</text>
+    </svg>
+</div>
+
+<!--   Controller i App -->
+	 <script type="text/javascript" src="js/app.js"></script>
+  </body>
+</html>
