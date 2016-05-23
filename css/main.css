@@ -41,6 +41,7 @@ margin-left:90%;
 color:#edf1f2;
 cursor:pointer;
  position:fixed;
+   z-index: 100; 
 }
 .filter{
 -webkit-backface-visibility: hidden; 
@@ -49,6 +50,7 @@ cursor:pointer;
 color:#edf1f2;
 cursor:pointer;
 	 position:fixed;
+	   z-index: 100; 
 }
 /* nakon otvaranja menu-a i filtera */
 .lang{
